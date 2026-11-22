@@ -1,0 +1,27 @@
+# Workflow CI : vérifie automatiquement le code à chaque push et pull request.
+name: CI
+
+# Quand le workflow se déclenche
+on: [push, pull_request]
+
+jobs:
+  tests:
+    # Machine fournie par GitHub pour lancer les vérifications
+    runs-on: ubuntu-latest
+    steps:
+      # Récupère le code du dépôt
+      - uses: actions/checkout@v4
+
+      # Installe Python 3.12
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Installe les bibliothèques du projet
+      - run: pip install -r requirements.txt
+
+      # Vérifie le style du code
+      - run: ruff check .
+
+      # Lance les tests et échoue si la couverture est sous 80 %
+      - run: pytest --cov=app --cov-fail-under=80
