@@ -1,0 +1,9 @@
+
+# On les installe toutes d'un coup avec : pip install -r requirements.txt
+
+fastapi      # framework pour créer l'API
+uvicorn      # serveur qui fait tourner l'API
+pytest       # lance les tests
+pytest-cov   # mesure la couverture des tests (minimum 80 %)
+httpx        # nécessaire pour tester les routes de l'API
+ruff         # vérifie le style et la propreté du code
