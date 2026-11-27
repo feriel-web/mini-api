@@ -1,6 +1,7 @@
 
 
 from fastapi import FastAPI, HTTPException
+
 from app.outils.math import factorielle
 
 app = FastAPI(title="Mini API")

@@ -1,5 +1,6 @@
 
 import pytest
+
 from app.outils.math import factorielle
 
 
